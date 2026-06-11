@@ -342,3 +342,49 @@ h3 {
 }
 
 /*END Xbox One Controller Styling*/
+
+
+
+
+
+
+
+/* 高亮度黑白主题 —— 仅手柄外壳、摇杆、扳机、肩键、十字键、菜单键变灰，ABXY保留彩色 */
+
+/* 手柄背景变灰+提亮 */
+.xbox.black {
+    background: url(images/base.svg);
+    filter: none; /* 确保父级无滤镜 */
+}
+
+/* 需要变成黑白的部件（单独加滤镜） */
+.xbox.black .stick,
+.xbox.black .trigger,
+.xbox.black .bumper,
+.xbox.black .face,
+.xbox.black .back,
+.xbox.black .start,
+.xbox.black .quadrant {
+    filter: grayscale(100%) brightness(1.2); /* 亮度1.2 = 高亮黑白 */
+}
+
+/* 按下状态稍微再亮一点 */
+.xbox.black .stick.pressed,
+.xbox.black .trigger.pressed,
+.xbox.black .bumper.pressed,
+.xbox.black .face.pressed,
+.xbox.black .back.pressed,
+.xbox.black .start.pressed {
+    filter: grayscale(100%) brightness(1.4);
+}
+
+/* ABXY 按键完全保持原色，不受任何滤镜影响 */
+.xbox.black .button,
+.xbox.black .button.pressed {
+    filter: none !important;
+}
+
+/* 可选：摇杆按下时的白色高亮圈保持干净 */
+.xbox.black .stick.pressed {
+    filter: grayscale(100%) brightness(1.3);
+}
